@@ -1,3 +1,6 @@
-# Docker & kubernetes -- Practical approach 
+# Docker getting started 
 
-## check day1 to day5 branches 
+## Normal discussion 
+
+<img src="fd1.png">
+
