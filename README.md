@@ -398,6 +398,113 @@ aa                    v1               da305b194ee8   5 seconds ago   5.61MB
 
 <img src="web.png">
 
+### day1 history 
+
+```
+10023  docker  context  ls
+10024  docker  version 
+10025  history
+10026  docker  version 
+10027  docker  search   mysql
+10028  docker version 
+10029* ssh -i Downloads/macdocker.pem  ec2-user@54.242.142.161
+10030  docker version 
+10031  ssh -i Downloads/macdocker.pem  ec2-user@54.242.142.161
+10032  rm .ssh/known_hosts
+10033  ssh -i Downloads/macdocker.pem  ec2-user@54.242.142.161
+10034  docker  context  ls
+10035  docker  context  create  new   --docker  host="tcp://54.242.142.161:237" 
+10036  history
+10037  docker  context  create  new1   --docker  host="tcp://54.242.142.161:2375" 
+10038  docker  context  use  new1
+10039  docker  version 
+10040  history
+10041  docker  version 
+10042  history
+10043  docker  search  mysql
+10044  history
+10045  docker  images
+10046  history
+10047  docker  pull  python 
+10048  docker  images
+10049  docker  pull   alpine 
+10050  docker  images
+10051  docker  pull   busybox 
+10052  docker  images
+10053  history
+10054  docker  images
+10055  docker pull oraclelinux:8.4  
+10056  docker  images
+10057  history
+10058  docker  pull images
+10059  docker  images
+10060  docker  rmi   5b3b4504ff1f  
+10061  docker  images
+10062  docker  pull  python:3.6-alpine3.12 
+10063  docker  images
+10064  history
+10065  docker  images
+10066  docker  run  --name  ashuc1  -d  alpine:latest  ping  localhost     
+10067  docker  ps
+10068  history
+10069  docker  ps
+10070  docker  context  ls
+10071  docker  context use  new1 *  
+10072  docker  context use  new1 
+10073  docker  context  ls
+10074  docker  ps
+10075  history
+10076  docker  ps 
+10077  docker  ps
+10078  docker   exec -it   ashuc1  sh 
+10079* docker  ps   ashuc1
+10080* docker  ps   
+10081  docker  ps
+10082  docker  stats  ashuc1  
+10083  history
+10084  docker  stats  ashuc1  
+10085  docker  stats  
+10086  history
+10087  docker  stats  
+10088  history
+10089  docker  ps
+10090  docker  logs   ashuc1 
+10091  history
+10092  docker  logs  -f  ashuc1 
+10093  history
+10094  docker  ps
+10095  docker  stop  ashuc1
+10096  docker  ps
+10097  history
+10098  docker  ps
+10099  docker  ps  -a
+10100  docker  start  ashuc1
+10101  docker ps
+10102  docker  kill  ashuc1
+10103  docker  rm ashuc1
+10104  docker  start  ashuc1
+10105  docker  ps
+10106  docker  commit  4deb5a15f688  aa:v1 
+10107  docker  images
+10108  history
+10109  docker  context  ls
+10110  history
+10111  docker  run -it -d  --name ashuc1  alpine  ping fb.com 
+10112  docker  run -it -d  --name ashuc2  alpine  ping fb.com 
+10113  docker  exec -it ashuc1  sh 
+10114  docker  cp   ashuc1:/helloc1.txt  Desktop
+10115  cd Desktop
+10116  docker  cp  helloc1.txt  ashuc2:/
+10117  docker  exec -it  ashuc2 sh 
+10118  history
+10119  docker ps -a
+10120  history
+10121  docker  context  ls
+10122  docker  context use  default 
+
+
+```
+
 
 
 
