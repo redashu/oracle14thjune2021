@@ -394,6 +394,10 @@ aa                    v1               da305b194ee8   5 seconds ago   5.61MB
 
 ```
 
+## DOCKER CLIENT AND SERVER arch 
+
+<img src="web.png">
+
 
 
 
