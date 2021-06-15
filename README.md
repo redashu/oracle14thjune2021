@@ -458,7 +458,207 @@ round-trip min/avg/max = 0.105/0.106/0.107 ms
 
 ```
 
+## day2 history 
 
+```
+10004  docker  run -itd --name  ashuc1  alpine  ksdjflksdjfsdfsdfl 
+10005  docker  ps  -a
+10006  docker rm  -f 2372aba59550 
+10007  docker context  ls
+10008  docker  images
+10009  docker  ps
+10010  docker rmi 81bcf752ac3d 7e0aa2d69a15 
+10011  docker images
+10012  history
+10013  docker version 
+10014  history
+10015  docker  context ls
+10016  docker  context  rm  new 
+10017  docker  context  rm   myawsDE 
+10018  docker  context ls
+10019  history
+10020  docker  context ls
+10021  history
+10022  docker  ps 
+10023  docker rm $(docker ps -aq) -f
+10024  docker run -itd --name ashuc1   --memory 100M  alpine ping fb.com 
+10025  docker  ps
+10026  docker  stats
+10027  docker run -itd --name ashuc2 --cpus-share=20   --memory 100M  alpine ping fb.com 
+10028  docker run -itd --name ashuc2 --cpu-shares=20   --memory 100M  alpine ping fb.com 
+10029  docker stats
+10030  history
+10031  pip3 install  --user  docker 
+10032  pip  install  --user  docker 
+10033  pip3
+10034  ssh  fire@192.168.1.12
+10035  docker context ls
+10036  ls
+10037  cd python
+10038  ls
+10039  docker  build  -t   ashupython:v1  .  
+10040  ls
+10041  cd  python
+10042  ls
+10043  history
+10044  docker  images
+10045  hisotr
+10046  history
+10047  docker  images
+10048  clear
+10049  docker  images
+10050  docker  run -itd  --name ashupyc1  ashupython:v1  
+10051  docker  ps
+10052  history
+10053  docker  ps
+10054  docker  logs  -f ashupyc1 
+10055  history
+10056  docker  ps
+10057  docker  exec -it  ashupyc1  bash 
+10058  history
+10059  docker  ps
+10060  docker  images
+10061  history
+10062  docker  ps
+10063  docker  images
+10064  docker run -it --rm  0966fa3c9274   bash 
+10065  history
+10066  docker  exec -it  ashupyc1  bash  
+10067  docker run -tid --name webui -p 9000:9000  -v /var/run/docker.sock:/var/run/docker.sock --restart always portainer/portainer 
+10068  docker  ps
+10069  docker context ls
+10070  history
+10071  ls
+10072  cd python
+10073  ls
+10074  docker  build  -t  ashupy:v2  -f  python.dockerfile  . 
+10075  docker images
+10076  history
+10077  ls
+10078  docker  build  -t  ashupy:v2  -f  python.dockerfile  python  
+10079  docker  build  -t  ashupy:v2  -f  python.dockerfile  ./python 
+10080  docker  build  -t  ashupy:v2  -f  python.dockerfile  /Users/fire/Desktop/myimages/python 
+10081  docker  build  -t  ashupy:v2  -f  python.dockerfile  /Users/fire/Desktop/myimages/python/  
+10082  ls
+10083  cd python
+10084  ls
+10085  cd  Desktop
+10086  ls
+10087  cd  myimages
+10088  ls
+10089  cd  webapp
+10090  ls
+10091  git clone https://github.com/mdn/beginner-html-site-styled.git 
+10092  docker  run -itd --name xx11 nginx 
+10093  docker  exec -it xx11 bash 
+10094  docker rm  xx11
+10095  docker rm  xx11 -f
+10096  cd
+10097  cd  Desktop
+10098  ls
+10099  cd  myimages
+10100  ls
+10101  cd  webapp
+10102  ls
+10103  cd  webapp
+10104  ls
+10105  docker  build  -t   ashungweb:v1  . 
+10106  cd  webapp
+10107  docker  build  -t   ashungweb:v1  . 
+10108  cd
+10109  docker  build  -t x1:v1  /Users/fire/Desktop/myimages/webapp  
+10110  cd  Desktop/myimages
+10111  ls
+10112  cd  python
+10113  ls
+10114  history
+10115  ls
+10116  cd
+10117  docker  images
+10118  docker  run -itd --name ashuwebc1  -p  1234:80  ashungweb:v1  
+10119  docker  ps
+10120  history
+10121  docker context  ls
+10122  docker  ps
+10123  history
+10124  docker context  ls
+10125  docker  info 
+10126  docker rm $(docker ps -aq) -f
+10127  docker images
+10128  docker  ps
+10129  docker  images 
+10130  docker  tag  ashungweb:v1   dockerashu/ashungweb:v1 
+10131  docker login  
+10132  docker push dockerashu/ashungweb:v1 
+10133  docker logout 
+10134  history
+10135  docker  images
+10136* history
+10137* docker  context use default 
+10138* docker images 
+10139* docker rm $(docker ps -aq) 
+10140* docker rmi $(docker images -q) -f
+10141* history
+10142* docker context  ls
+10143* docker  images
+10144* docker pull dockerashu/ashungweb:v1 
+10145* docker  images
+10146* docker  context use new1
+10147* history
+10148* docker  ps 
+10149* docker  ps  -q
+10150* docker  ps  
+10151* docker  ps  -aq
+10152* docker  rm  $(docker  ps  -aq) -f
+10153* docker run -itd --name ashuc1 alpine ping fb.com 
+10154* docker ps
+10155* history
+10156* docker  ps
+10157* docker  inspect  ashuc1 
+10158* docker  ps
+10159* docker  inspect amitnet1  |   grep -i macad
+10160* history
+10161* docker  inspect  ashuc1 
+10162  docker inspect  ashuc1  --format='{{.Id}}'
+10163  docker inspect  ashuc1  --format='{{.State.Status}}'
+10164  docker inspect  ashuc1  --format='{{.NetworkSettings.IPAddress}}'
+10165  docker ps
+10166  docker inspect  krishnac1  --format='{{.NetworkSettings.IPAddress}}'
+10167  history
+10168  docker  exec -it  ashuc1  sh 
+10169  history
+10170  docker  network   ls
+10171  docker  network  inspect  eabdd3d59bcb  
+10172  history
+10173  docker  network   ls
+10174  docker  network  inspect  eabdd3d59bcb  
+10175  history
+10176  docker  network   ls
+10177  docker  rm $(docker ps -aq) -f
+10178  docker  network  inspect  bridge
+10179  history
+10180  docker  network   ls
+10181  docker  run  -it   --name x1 --network  none  alpine  sh  
+10182  docker  rm  x1 
+10183  docker  run  -it   --name x1 --network host   alpine  sh  
+10184  docker  rm  x1 
+10185  history
+10186  docker  network  ls
+10187  docker  network   create   ashubr1   
+10188  docker  network   create   ashubr2  --subnet  192.168.10.0/24  
+10189  docker  network  ls
+10190  docker  network   inspect  ashubr1
+10191  docker  network   inspect  ashubr2
+10192  history
+10193  docker  network  ls
+10194  docker  run -itd --name ashubr1c1  --network ashubr1  alping ping fb.com 
+10195  docker  run -itd --name ashubr1c1  --network ashubr1  alpine ping fb.com 
+10196  docker  run -itd --name ashubr1c2  --network ashubr1  alpine ping fb.com 
+10197  docker  network  inspect  ashubr1 
+10198  history
+10199  docker  exec -it  ahubr1c1 sh 
+10200  docker  exec -it  ashubr1c1 sh 
+```
 
 
 
