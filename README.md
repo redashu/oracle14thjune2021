@@ -99,4 +99,48 @@ exit
 
 ```
 
+### building image with another name dockerfile
+
+```
+
+❯ ls
+Dockerfile        hello.py          python.dockerfile
+
+░▒▓ ~/Desktop/myimages/python ······················································· 12:32:10 pm ▓▒░─╮
+❯ docker  build  -t  ashupy:v2  -f  python.dockerfile .                                                ─╯
+
+
+```
+
+## webapp containerization process 
+
+<img src="webapp.png">
+
+ ### Nginx based containerization 
+ 
+ <img src="ng.png">
+ 
+ ### Nginx based image build 
+ 
+ ```
+ ❯ ls
+Dockerfile   samplewebapp
+❯ docker  build  -t   ashungweb:v1  .
+Sending build context to Docker daemon  79.87kB
+Step 1/3 : FROM nginx
+ ---> d1a364dc548d
+Step 2/3 : MAINTAINER ashutoshh@linux.com
+ ---> Running in 8a22aafd13b3
+Removing intermediate container 8a22aafd13b3
+ ---> 7339e449c2c5
+Step 3/3 : COPY samplewebapp  /usr/share/nginx/html/
+ ---> 527a6e8f093a
+Successfully built 527a6e8f093a
+Successfully tagged ashungweb:v1
+
+```
+
+
+
+
 
