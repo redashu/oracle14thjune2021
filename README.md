@@ -12,3 +12,20 @@
 
 <img src="cgroups.png">
 
+## Demo of control groups 
+
+### Memory limit 
+
+```
+ docker run -itd --name ashuc1   --memory 100M  alpine ping fb.com 
+ 
+```
+
+### CPu limit 
+
+```
+ docker run -itd --name ashuc2 --cpu-shares=20   --memory 100M  alpine ping fb.com 
+ 
+```
+
+
