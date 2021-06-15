@@ -1,3 +1,14 @@
-# Docker & kubernetes -- Practical approach 
+# Docker Day1 Revision 
 
-## check day1 to day5 branches 
+## Docker CE a clean picture 
+
+<img src="rev.png">
+
+## ISolation between or among the contaienr is maintained by NameSpace in Docker 
+
+<img src="ns.png">
+
+## Cgroups to put limit in the Container 
+
+<img src="cgroups.png">
+
