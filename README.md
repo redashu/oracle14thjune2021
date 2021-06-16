@@ -207,6 +207,126 @@ GeoIP.conf.default       dr
 <img src="install.png">
 
 
+## K8s architecture view 
+
+### Level 1 
+
+<img src="k8s1.png">
+
+## Installing minikube 
+
+```
+❯ curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-darwin-amd64
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 60.4M  100 60.4M    0     0  4270k      0  0:00:14  0:00:14 --:--:-- 4984k
+❯ sudo install minikube-darwin-amd64 /usr/local/bin/minikube
+Password:
+❯ minikube version
+minikube version: v1.21.0
+commit: 76d74191d82c47883dc7e1319ef7cebd3e00ee11
+
+```
+
+### Minikube explaination 
+
+<img src="minikube.png">
+
+### Minikube  cluster 
+
+<img src="minikube1.png">
+
+###
+
+```
+❯ minikube  start --driver=docker
+😄  minikube v1.21.0 on Darwin 11.4
+🆕  Kubernetes 1.20.7 is now available. If you would like to upgrade, specify: --kubernetes-version=v1.20.7
+✨  Using the docker driver based on existing profile
+👍  Starting control plane node minikube in cluster minikube
+🚜  Pulling base image ...
+💾  Downloading Kubernetes v1.20.2 preload ...
+    > preloaded-images-k8s-v11-v1...: 491.55 MiB / 491.55 MiB  100.00% 7.51 MiB
+🤷  docker "minikube" container is missing, will recreate.
+🔥  Creating docker container (CPUs=2, Memory=1988MB) ...
+🐳  Preparing Kubernetes v1.20.2 on Docker 20.10.6 ...
+🔎  Verifying Kubernetes components...
+    ▪ Using image gcr.io/k8s-minikube/storage-provisioner:v5
+🌟  Enabled addons: storage-provisioner, default-storageclass
+🏄  Done! kubectl is now configured to use "minikube" cluster and "default" namespace by default
+
+```
+
+### kubernetes context and client connection 
+
+<img src="k8scontext.png">
+
+### checking kubectl 
+
+```
+❯ kubectl   version  --client
+Client Version: version.Info{Major:"1", Minor:"21", GitVersion:"v1.21.1", GitCommit:"5e58841cce77d4bc13713ad2b91fa0d961e69192", GitTreeState:"clean", BuildDate:"2021-05-12T14:18:45Z", GoVersion:"go1.16.4", Compiler:"gc", Platform:"darwin/amd64"}
+
+
+```
+
+
+### checking server and client version checking 
+
+```
+❯ kubectl   version  --client
+Client Version: version.Info{Major:"1", Minor:"21", GitVersion:"v1.21.1", GitCommit:"5e58841cce77d4bc13713ad2b91fa0d961e69192", GitTreeState:"clean", BuildDate:"2021-05-12T14:18:45Z", GoVersion:"go1.16.4", Compiler:"gc", Platform:"darwin/amd64"}
+❯ kubectl   version
+Client Version: version.Info{Major:"1", Minor:"21", GitVersion:"v1.21.1", GitCommit:"5e58841cce77d4bc13713ad2b91fa0d961e69192", GitTreeState:"clean", BuildDate:"2021-05-12T14:18:45Z", GoVersion:"go1.16.4", Compiler:"gc", Platform:"darwin/amd64"}
+Server Version: version.Info{Major:"1", Minor:"20", GitVersion:"v1.20.2", GitCommit:"faecb196815e248d3ecfb03c680a4507229c2a56", GitTreeState:"clean", BuildDate:"2021-01-13T13:20:00Z", GoV
+
+```
+
+
+### checking context 
+
+```
+❯ kubectl   config  get-contexts
+CURRENT   NAME                          CLUSTER      AUTHINFO           NAMESPACE
+          kubernetes-admin@kubernetes   kubernetes   kubernetes-admin   
+*         minikube                      minikube     minikube           default
+
+```
+
+### KUbeapi server 
+
+<img src="apiserver.png">
+
+#### more detail 
+
+<img src="apis.png">
+
+### authentication certification is present master machine 
+
+```
+[root@master-node ~]# cd /etc/kubernetes/
+[root@master-node kubernetes]# ls
+admin.conf  controller-manager.conf  kubelet.conf  manifests  pki  scheduler.conf
+[root@master-node kubernetes]# 
+
+```
+
+### after downloading file checking connection 
+
+```
+ kubectl   version   --kubeconfig  admin.conf
+Client Version: version.Info{Major:"1", Minor:"21", GitVersion:"v1.21.1", GitCommit:"5e58841cce77d4bc13713ad2b91fa0d961e69192", GitTreeState:"clean", BuildDate:"2021-05-12T14:18:45Z", GoVersion:"go1.16.4", Compiler:"gc", Platform:"darwin/amd64"}
+Server Version: version.Info{Major:"1", Minor:"21", GitVersion:"v1.21.1", GitCommit:"5e58841cce77d4bc13713ad2b91fa0d961e69192", GitTreeState:"clean", BuildDate:"2021-05-12T14:12:29Z", GoVersion:"go1.16.4", Compiler:"gc", Platform:"linux/amd64"}
+❯ 
+❯ kubectl   get  nodes     --kubeconfig  admin.conf
+NAME          STATUS   ROLES                  AGE   VERSION
+master-node   Ready    control-plane,master   35m   v1.21.1
+minion1       Ready    <none>                 35m   v1.21.1
+minion2       Ready    <none>                 34m   v1.21.1
+
+
+```
+
 
 
 
