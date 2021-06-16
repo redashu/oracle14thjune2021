@@ -190,6 +190,22 @@ GeoIP.conf.default       dr
 ```
 
 
+### problems related to Docker engine if we deploy containerized app 
+
+<img src="prob.png">
+
+### container orchestration tools 
+
+<img src="carch.png">
+
+### Google Kubernetes 
+
+<img src="k8s.png">
+
+### k8s installation 
+
+<img src="install.png">
+
 
 
 
