@@ -35,5 +35,64 @@ To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
 
 ```
 
+##  switching the context 
+
+```
+❯ kubectl  config get-contexts                                                                                             ─╯
+❯ kubectl  config get-contexts
+CURRENT   NAME                          CLUSTER      AUTHINFO           NAMESPACE
+          kubernetes-admin@kubernetes   kubernetes   kubernetes-admin   
+*         minikube                      minikube     minikube           default
+❯ kubectl  config   use-context kubernetes-admin@kubernetes
+Switched to context "kubernetes-admin@kubernetes".
+❯ kubectl  config get-contexts
+CURRENT   NAME                          CLUSTER      AUTHINFO           NAMESPACE
+*         kubernetes-admin@kubernetes   kubernetes   kubernetes-admin   
+          minikube                      minikube     minikube           default
+❯ kubectl  get  nodes
+NAME          STATUS   ROLES                  AGE   VERSION
+master-node   Ready    control-plane,master   17h   v1.21.1
+minion1       Ready    <none>                 17h   v1.21.1
+minion2       Ready    <none>                 17h   v1.21.1
+❯ 
+❯ 
+❯ kubectl  config   use-context  minikube
+Switched to context "minikube".
+❯ kubectl  get  nodes
+NAME       STATUS   ROLES                  AGE   VERSION
+minikube   Ready    control-plane,master   10d   v1.20.2
+❯ kubectl  config   use-context kubernetes-admin@kubernetes
+Switched to context "kubernetes-admin@kubernetes".
+❯ kubectl  get  nodes
+NAME          STATUS   ROLES                  AGE   VERSION
+master-node   Ready    control-plane,master   17h   v1.21.1
+minion1       Ready    <none>                 17h   v1.21.1
+minion2       Ready    <none>                 17h   v1.21
+
+```
+
+
+## kube-schedular 
+
+<img src="schedular.png">
+
+
+## etcd in k8s 
+
+<img src="etcd.png">
+
+### container networking in k8s 
+
+<img src="net.png">
+
+
+## CNI 
+
+<img src="cni.png">
+
+### cni based bridge accross the minion node 
+
+<img src="cnibr.png">
+
 
 
