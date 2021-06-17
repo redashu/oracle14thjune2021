@@ -4,11 +4,11 @@ metadata:
   creationTimestamp: null
   labels:
     run: ashupod2
-  name: ashupod2
+  name: ashupod2 # name of POD 
 spec:
   containers:
-  - image: dockerashu/ashujavaweb:16thjunev007
-    name: ashupod2
+  - image: dockerashu/ashujavaweb:16thjunev007 # docker image 
+    name: ashupod2 # name of container 
     resources: {}
   dnsPolicy: ClusterFirst
   restartPolicy: Always
