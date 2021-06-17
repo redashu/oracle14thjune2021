@@ -256,7 +256,175 @@ ashupod1.yaml autopod.yaml  mypod.json
 
 ```
 
+### deleting pods 
 
+```
+❯ kubectl  delete  pods --all
+pod "amitpod-1234" deleted
+pod "amitpod2" deleted
+pod "anusha-123" deleted
+pod "chandrapod-new" deleted
+pod "dhiraj123" deleted
+pod "inderpod-1234" deleted
+pod "isalipod-1234" deleted
+pod "krishna-1711" deleted
+
+```
+
+### checking logs of pod 
+
+```
+ kubectl  logs  -f  ashualp 
+ 
+```
+
+## accessing application running in the POD 
+
+<img src="podacc.png">
+
+## Introduction to service 
+
+<img src="svc.png">
+
+### service uses lable of pod to indentify 
+
+<img src="lb.png">
+
+### type of services 
+
+<img src="stype.png">
+
+## checking label of pod 
+
+```
+❯ ls
+alpine.yaml   ashupod1.yaml autopod.yaml  mypod.json    tomcat.yml
+❯ kubectl  apply -f  tomcat.yml
+pod/ashutomcat configured
+❯ 
+❯ kubectl  get  po ashutomcat --show-labels
+NAME         READY   STATUS    RESTARTS   AGE   LABELS
+ashutomcat   1/1     Running   0          62m   x=helloashuapp
+
+
+```
+
+### checking all pod labels 
+
+```
+
+❯ kubectl  get po   --show-labels
+NAME            READY   STATUS        RESTARTS   AGE   LABELS
+amitalp         1/1     Running       0          74m   run=amitalp
+amittomcat      1/1     Running       0          65m   run=amittomcat,true=helloamitapp
+anushapod3      1/1     Running       0          73m   run=anushapod3
+anushatomcat    1/1     Running       0          57m   afternoon=kubesession
+ashualp         1/1     Running       0          75m   run=ashualp
+ashupod2        1/1     Running       0          85m   run=ashupod2
+
+```
+
+### creating service. 
+
+```
+kubectl  create  service   nodeport   ashusvc1   --tcp  1234:8080  --dry-run=client -o yaml >tomcatsvc.yaml
+```
+
+### Service Selector will use label of POD to find 
+
+<img src="sel.png">
+
+### creating service 
+
+```
+❯ kubectl  apply -f  tomcatsvc.yaml
+service/ashusvc1 created
+❯ kubectl  get  service
+NAME             TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)          AGE
+amitsvc1         NodePort    10.99.199.12     <none>        9999:31937/TCP   13m
+ashusvc1         NodePort    10.105.231.215   <none>        1234:31644/TCP   6s
+chandrasvc       NodePort    10.104.170.106   <none>        1254:32673/TCP   2m46s
+krishnaservice   NodePort    10.106.101.68    <none>        7777:31399/TCP   9m36s
+kubernetes       ClusterIP   10.96.0.1        <none>        443/TCP          23h
+navyasvc1        NodePort    10.108.232.158   <none>        1234:30850/TCP   60s
+
+```
+
+###  checking 
+
+<img src="svc2lb.png">
+
+### Deleting all pods and services
+
+```
+❯ kubectl delete all --all
+pod "amitalp" deleted
+pod "amittomcat" deleted
+pod "anushapod3" deleted
+pod "anushatomcat" deleted
+pod "ashualp" deleted
+
+
+```
+
+### namespace in k8s
+
+<img src="ns.png">
+
+```
+❯ kubectl  get  pod  -n  kube-system
+NAME                                       READY   STATUS    RESTARTS   AGE
+calico-kube-controllers-78d6f96c7b-78t5h   1/1     Running   1          24h
+calico-node-f96qn                          1/1     Running   1          24h
+calico-node-lwjtg                          1/1     Running   1          24h
+calico-node-z688k                          1/1     Running   1          24h
+coredns-558bd4d5db-675lz                   1/1     Running   1          24h
+coredns-558bd4d5db-pkb6n                   1/1     Running   1          24h
+etcd-master-node                           1/1     Running   1          24h
+kube-apiserver-master-node                 1/1     Running   1          24h
+kube-controller-manager-master-node        1/1     Running   1          24h
+kube-proxy-d7gjv                           1/1     Running   1          24h
+kube-proxy-q89cb                           1/1     Running   1          24h
+kube-proxy-x66q5                           1/1     Running   1          24h
+kube-scheduler-master-node                 1/1     Running   1          24h
+
+```
+
+### creating namespaces 
+
+```
+❯ kubectl create  namespace   ashu-project
+namespace/ashu-project created
+❯ kubectl  get  ns
+NAME              STATUS   AGE
+anusha-project    Active   1s
+ashu-project      Active   7s
+default           Active   24h
+kube-node-lease   Active   24h
+kube-public       Active   24h
+kube-system       Active   24h
+vishal-project    Active   0s
+
+```
+
+### setting default namesapce 
+
+```
+❯ kubectl  config set-context --current  --namespace ashu-project
+Context "kubernetes-admin@kubernetes" modified.
+❯ 
+❯ kubectl  get  po
+No resources found in ashu-project namespace.
+❯ 
+❯ kubectl  config  get-contexts
+CURRENT   NAME                          CLUSTER      AUTHINFO           NAMESPACE
+*         kubernetes-admin@kubernetes   kubernetes   kubernetes-admin   ashu-project
+          minikube                      minikube     minikube           default
+          
+ ```
+ 
+ 
+  
 
 
 
