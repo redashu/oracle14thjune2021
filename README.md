@@ -1,3 +1,8 @@
-# Docker & kubernetes -- Practical approach 
+## Kubernetes and docker certifications info 
 
-## check day1 to day5 branches 
+<img src="cert.png">
+
+### k8s arch 
+
+<img src="arch.png">
+
