@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: ashupod2
+  name: ashupod2
+spec:
+  containers:
+  - image: dockerashu/ashujavaweb:16thjunev007
+    name: ashupod2
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
