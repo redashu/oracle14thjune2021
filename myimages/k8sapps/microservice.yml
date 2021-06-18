@@ -1,0 +1,124 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: db1
+  name: db1 # deployment name 
+  namespace: ashu-project # ns info 
+spec:
+  replicas: 1 # no of pod 
+  selector:
+    matchLabels:
+      app: db1
+  strategy: {}
+  template: # tempalte 
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: db1 # label of pod 
+    spec:
+      volumes: # creating volume 
+      - name: ashudbvol1 
+        nfs:
+         server: 172.31.50.129
+         path: /data/ashudb/ 
+      containers:
+      - image: mysql:5.6
+        name: mysql
+        volumeMounts:
+        - name: ashudbvol1
+          mountPath: /var/lib/mysql/ # default mysql Db storage location
+        ports:
+        - containerPort: 3306
+        env: 
+        - name: MYSQL_ROOT_PASSWORD # predefine evn by mysql docker image 
+          valueFrom: # calling data from somewhere 
+            secretKeyRef: # from secret 
+              name: dbsec # name of secret 
+              key: key1 # key of secret
+        resources: {}
+status: {}
+
+# creating service of clusterIP type for DB 
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: db1
+  name: db1
+spec:
+  ports:
+  - port: 3306
+    protocol: TCP
+    targetPort: 3306
+  selector:
+    app: db1
+  type: ClusterIP
+status:
+  loadBalancer: {}
+
+# adding webapp yaml 
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: ashuwebapp
+  name: ashuwebapp
+  namespace: ashu-project # namespace 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ashuwebapp
+  strategy: {}
+  template: # template info
+    metadata:
+      creationTimestamp: null
+      labels: # label of pod 
+        app: ashuwebapp
+    spec:
+      containers:
+      - image: wordpress:4.8-apache
+        name: wordpress
+        ports:
+        - containerPort: 80 # app port 
+        env:
+        - name: WORDPRESS_DB_HOST 
+          value: db1 # svc name of DB deployment 
+        - name: WORDPRESS_DB_PASSWORD
+          valueFrom:
+           secretKeyRef:
+            name: dbsec
+            key: key1 
+        resources: {}
+status: {}
+
+# creating svc for webapp
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: ashuwebapp
+  name: ashuwebapp
+  namespace: ashu-project
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: ashuwebapp
+  type: NodePort
+status:
+  loadBalancer: {}
