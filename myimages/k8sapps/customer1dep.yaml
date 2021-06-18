@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels: # label of Deployment 
+    app: ashudep1
+  name: ashudep1 # name of deployment 
+  namespace: ashu-project # namespace info 
+spec:
+  replicas: 1 # no of POD we want initially 
+  selector:
+    matchLabels:
+      app: ashudep1
+  strategy: {}
+  template: # Deployment will use Template to create POD
+    metadata:
+      creationTimestamp: null
+      labels: # label of PODs
+        app: ashudep1
+    spec:
+      containers:
+      - image: dockerashu/ashucustomer1:v0011 # docker hub image 
+        name: ashucustomer1 # name of container
+        ports: # pod app port (optional field)
+        - containerPort: 80
+        env: # to create / replace values of env from docker image to container
+        - name: app # this env variable is already present in docker image
+          value: test1 # change value of app varible
+        resources: {}
+status: {}
+
+# adding another yaml - this is for service 
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: ashusvc111
+  name: ashusvc111 # name of service 
+  namespace: ashu-project # namespace info 
+spec:
+  ports:
+  - name: 1234-80
+    port: 1234 # service POrt 
+    protocol: TCP
+    targetPort: 80 # pod app port 
+  selector: # POD finder using label of POD 
+    app: ashudep1 # exactly same label of pods 
+  type: NodePort # type of service 
+status:
+  loadBalancer: {}
