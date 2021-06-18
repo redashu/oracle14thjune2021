@@ -1,3 +1,8 @@
-# Docker & kubernetes -- Practical approach 
+## kubernetes updates
 
-## check day1 to day5 branches 
+
+<img src="update.png">
+
+### deployment of dashboard 
+
+[link](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/)
