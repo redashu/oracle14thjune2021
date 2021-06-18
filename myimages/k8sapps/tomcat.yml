@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  namespace: ashu-project # define namespace info 
+  creationTimestamp: null
+  labels: # label of my pod 
+    x: heyashu
+  name: ashutomcat # name of POD
+spec:
+  containers:
+  - image: dockerashu/ashujavaweb:16thjunev007 # docker image 
+    name: ashutomcat # container name 
+    ports: # container app port 
+    - containerPort: 8080
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}

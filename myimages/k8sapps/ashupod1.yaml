@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+ name: ashupod-1234  # name of my POD 
+spec: # info about apps
+ containers: 
+ - image: dockerashu/ashujavaweb:16thjunev007 # image from DockerHUb 
+   name: ashuc1 # name of container 
+   ports: # to define app port
+   - containerPort: 8080 # its container image / app POrt
